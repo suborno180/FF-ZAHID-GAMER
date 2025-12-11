@@ -1,0 +1,80 @@
+.payment-cancel .cancel-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.payment-cancel .cancel-icon svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+    stroke-width: 3;
+}
+
+.cancel-message {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.cancel-info {
+    background: #fef2f2;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+    border: 2px solid #fecaca;
+}
+
+.cancel-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 1rem;
+}
+
+.cancel-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cancel-info li {
+    padding: 0.5rem 0;
+    color: #dc2626;
+    font-size: 0.95rem;
+}
+
+.cancel-info li::before {
+    content: "• ";
+    color: #ef4444;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.help-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.help-section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 0.75rem;
+}
+
+.help-section p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

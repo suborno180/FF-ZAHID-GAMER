@@ -1,0 +1,18 @@
+.test-role-page {
+    padding: 2rem;
+    min-height: 80vh;
+}
+
+.debug-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.debug-info pre {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}

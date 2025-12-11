@@ -1,0 +1,121 @@
+.floating-support {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 999;
+}
+
+.support-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+}
+
+.support-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+}
+
+.support-button.active {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.support-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.support-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 28px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-width: 140px;
+}
+
+.support-option .support-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.support-option.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.support-option.whatsapp:hover {
+    background: #20ba5a;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.support-option.telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.support-option.telegram:hover {
+    background: #0077b5;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .floating-support {
+        bottom: 90px;
+        right: 15px;
+    }
+
+    .support-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .support-menu {
+        right: 0;
+    }
+
+    .support-option {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 130px;
+    }
+
+    .support-option .support-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

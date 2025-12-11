@@ -1,0 +1,160 @@
+/* Mobile Header - Always hidden on desktop */
+.mobile-header {
+    display: none;
+}
+
+/* Mobile Bottom Navigation - Always hidden on desktop */
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* Mobile-only styles */
+@media screen and (max-width: 1024px) {
+
+    /* Show mobile header at top - ALWAYS STICKY */
+    .mobile-header {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 0.75rem 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        width: 100%;
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        text-decoration: none;
+    }
+
+    .mobile-logo-icon-wrapper {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: 2px solid #10b981;
+        padding: 0.4rem;
+        background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+        overflow: hidden;
+    }
+
+    .mobile-logo .logo-icon {
+        width: 200%;
+        height: 200%;
+        object-fit: contain;
+    }
+
+    .mobile-logo .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .mobile-logo .logo-brand-name {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: #18181b;
+        letter-spacing: -0.02em;
+    }
+
+    /* Show bottom navigation bar */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 0.5rem 0.5rem;
+        padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        justify-content: space-around;
+        align-items: center;
+        height: 65px;
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #94a3b8;
+        padding: 0.5rem;
+        border-radius: 12px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        flex: 1;
+        gap: 0.25rem;
+        position: relative;
+    }
+
+    .mobile-nav-item:active {
+        transform: scale(0.95);
+    }
+
+    .mobile-nav-item.active {
+        color: #10b981;
+    }
+
+    .mobile-nav-item.active .mobile-nav-avatar-initial {
+        border-color: #10b981;
+    }
+
+    .mobile-nav-item span {
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .mobile-nav-label {
+        font-size: 0.65rem;
+    }
+
+    /* Mobile Profile Avatar Styles */
+    .mobile-nav-avatar-img {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        transition: all 0.2s;
+    }
+
+    .mobile-nav-item.active .mobile-nav-avatar-img {
+        border-color: #10b981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    .mobile-nav-avatar-initial {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        border: 2px solid transparent;
+    }
+
+    .mobile-nav-item.active .mobile-nav-avatar-initial {
+        border-color: #10b981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+}
