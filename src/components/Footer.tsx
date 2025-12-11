@@ -1,82 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import {
-  Sparkles,
-  Shield,
-  Youtube,
-  Facebook,
-} from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
-  const [subscriberCount, setSubscriberCount] = useState('226K');
-  const [loading, setLoading] = useState(true);
+  const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    const fetchSubscriberCount = async () => {
-      try {
-        const API_KEY = 'AIzaSyDGD-2p3UO51mU4f7ADewVOsLKn-ubGFU0';
-        const CHANNEL_ID = 'UCxvYGbWqE5q8Y0Z8kZJZ0ZQ'; // Extract from your channel URL if needed
-        
-        // Try to get channel ID from username
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=ZahidGamerFF&key=${API_KEY}`
-        );
-        
-        if (!response.ok) {
-          // If username doesn't work, try with the channel URL handle
-          const handleResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=@ZahidGamerFF-&type=channel&key=${API_KEY}`
-          );
-          
-          if (handleResponse.ok) {
-            const handleData = await handleResponse.json();
-            if (handleData.items && handleData.items.length > 0) {
-              const channelId = handleData.items[0].snippet.channelId;
-              
-              // Now fetch the statistics
-              const statsResponse = await fetch(
-                `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${API_KEY}`
-              );
-              
-              if (statsResponse.ok) {
-                const statsData = await statsResponse.json();
-                if (statsData.items && statsData.items.length > 0) {
-                  const count = parseInt(statsData.items[0].statistics.subscriberCount);
-                  setSubscriberCount(formatSubscriberCount(count));
-                }
-              }
-            }
-          }
-        } else {
-          const data = await response.json();
-          if (data.items && data.items.length > 0) {
-            const count = parseInt(data.items[0].statistics.subscriberCount);
-            setSubscriberCount(formatSubscriberCount(count));
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching subscriber count:', error);
-        setSubscriberCount('226K'); // Fallback
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSubscriberCount();
-    // Refresh every 5 minutes
-    const interval = setInterval(fetchSubscriberCount, 5 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatSubscriberCount = (count: number): string => {
-    if (count >= 1000000) {
-      return (count / 1000000).toFixed(1) + 'M';
-    } else if (count >= 1000) {
-      return (count / 1000).toFixed(0) + 'K';
-    }
-    return count.toString();
-  };
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -92,44 +18,51 @@ const Footer = () => {
         </div>
 
         {/* YouTube Channel Section */}
-        <a
-          href="https://www.youtube.com/@ZahidGamerFF-"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="youtube-section"
-        >
-          <Youtube className="yt-icon" />
+        <div className="youtube-section">
+          <svg className="yt-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
           <div className="yt-info">
             <span className="yt-name">FF ZAHID GAMER</span>
-            <span className="yt-subs">{loading ? 'Loading...' : `${subscriberCount} Subscribers`}</span>
+            <span className="yt-subs">226K Subscribers</span>
           </div>
           <span className="yt-subscribe-btn">Subscribe</span>
-        </a>
+        </div>
 
         {/* Social Links */}
         <div className="footer-social-section">
           <a href="https://www.youtube.com/@ZahidGamerFF-" target="_blank" rel="noopener noreferrer" className="social-link">
-            <Youtube size={20} />
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
           </a>
           <a href="https://www.facebook.com/zahidgamerbd" target="_blank" rel="noopener noreferrer" className="social-link">
-            <Facebook size={20} />
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+            </svg>
           </a>
           <a href="https://www.facebook.com/people/FF-ZAHID-GAMER/100094445037191/" target="_blank" rel="noopener noreferrer" className="social-link">
-            <Facebook size={20} />
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+            </svg>
           </a>
         </div>
 
         {/* Bottom Info */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {new Date().getFullYear()} FF ZAHID GAMER. All Rights Reserved.
+            © {currentYear} FF ZAHID GAMER. All Rights Reserved.
           </p>
           <div className="footer-badges">
             <span className="badge">
-              <Shield size={14} /> Secure
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                <path d="M12 1l3.09 6.26l6.91 1.01l-5 4.87l1.18 6.88l-6.18-3.25l-6.18 3.25l1.18-6.88l-5-4.87l6.91-1.01l3.09-6.26z"/>
+              </svg> Secure
             </span>
             <span className="badge">
-              <Sparkles size={14} /> Verified
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                <path d="M12 22s8-4 8-10v-6l-8-4l-8 4v6c0 6 8 10 8 10z"/>
+              </svg> Verified
             </span>
           </div>
         </div>
@@ -139,4 +72,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
