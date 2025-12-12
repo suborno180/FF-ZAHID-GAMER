@@ -72,13 +72,13 @@ const Admin = () => {
             // Create map of details
             const detailsMap = new Map();
             if (detailsData) {
-                detailsData.forEach(detail => {
+                detailsData.forEach((detail:any) => {
                     detailsMap.set(detail.user_id, detail);
                 });
             }
 
             // Combine users with their details
-            const formattedUsers: User[] = (usersData || []).map(user => {
+            const formattedUsers: User[] = (usersData || []).map((user:any) => {
                 const details = detailsMap.get(user.id);
                 return {
                     id: user.id,

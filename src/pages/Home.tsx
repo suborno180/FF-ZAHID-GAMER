@@ -17,7 +17,7 @@ const Home = () => {
                 .order('created_at', { ascending: true }); // Slot 1, 2, 3 order
 
             if (bannersData && bannersData.length > 0) {
-                const bannerPaths = bannersData.map(b => b.image_url);
+                const bannerPaths = bannersData.map((b:any) => b.image_url);
                 setBanners(bannerPaths);
             } else {
                 // Fallback to static banners from public folder
